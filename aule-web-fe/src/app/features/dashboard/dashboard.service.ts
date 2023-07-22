@@ -40,6 +40,7 @@ export class DashboardService {
       typology_id: obj.typology_id,
       supervisor_id: obj.supervisor_id,
       room_id: obj.room_id,
+      course_id: obj.course_id,
     };
   }
 

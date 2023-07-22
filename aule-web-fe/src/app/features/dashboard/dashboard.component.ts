@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ApiService } from '../services/api.service';
-import { IGroup, ILocation, ISupervisor, ITypology } from '../interfaces/response.interface';
+import { ICourse, IGroup, ILocation, ISupervisor, ITypology } from '../interfaces/response.interface';
 import { IClassroom, IEvents } from '../interfaces/response.interface';
 import { Observable, map, startWith } from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -57,6 +57,7 @@ export class DashboardComponent implements OnInit {
     typology_id: new FormControl(0),
     supervisor_id: new FormControl(0),
     room_id: new FormControl(0),
+    course_id: new FormControl(0),
   });
 
   groupsList: IGroup[] = [];
@@ -65,6 +66,7 @@ export class DashboardComponent implements OnInit {
   typologyList: ITypology[] = [];
   supervisorList: ISupervisor[] = [];
   locationList: ILocation[] = [];
+  courseList: ICourse[] = [];
 
   groupId: number | undefined = 0;
   classId: number | undefined = 0;
@@ -100,6 +102,7 @@ export class DashboardComponent implements OnInit {
     this.getAllTypology();
     this.getAllSupervisor();
     this.getAllLocations();
+    this.getAllCourse();
   }
 
   setStep(index: number) {
@@ -139,6 +142,12 @@ export class DashboardComponent implements OnInit {
   getAllLocations() {
     this.apiService.getAllLocations().subscribe((res) => {
       this.locationList = res;
+    });
+  }
+
+  getAllCourse() {
+    this.apiService.getAllCourse().subscribe((res) => {
+      this.courseList = res;
     });
   }
 
@@ -358,6 +367,7 @@ export class DashboardComponent implements OnInit {
     this.eventId = selectedEventsId;
     this.apiService.getEventById(this.eventId).subscribe((res) => {
       if (res) {
+        console.log(res);
         this.eventsForm.patchValue({
           title: res.name || '',
           date: res.date || '',
@@ -367,6 +377,7 @@ export class DashboardComponent implements OnInit {
           typology_id: res.typology_id || 0,
           supervisor_id: res.supervisor_id || 0,
           room_id: res.room_id || 0,
+          course_id: res.course_id || 0,
         });
       }
     });

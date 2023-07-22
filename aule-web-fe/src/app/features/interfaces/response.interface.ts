@@ -15,6 +15,7 @@ export interface IEvents {
   typology_id?: number;
   supervisor_id?: number;
   room_id?: number;
+  course_id?: number[];
 }
 
 export interface IClassroom {

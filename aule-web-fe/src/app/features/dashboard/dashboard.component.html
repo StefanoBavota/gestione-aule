@@ -213,6 +213,13 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Seleziona i corsi associati</mat-label>
+              <mat-select formControlName="course_id" multiple>
+                <mat-option *ngFor="let course of courseList" [value]="course.id">{{course.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
           <mat-action-row>
             <button mat-button color="warn" (click)="clearFormEvent()">

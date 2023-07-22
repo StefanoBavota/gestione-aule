@@ -40,6 +40,10 @@ class EventController extends Controller
     public function show(string $id)
     {
         $event = Event::with(["room", "supervisor", 'courses', "typology"])->findOrFail($id);
+        
+        $courseIds = $event->courses->pluck('id');
+        $event->course_id = $courseIds;
+    
         return $event;
     }
 
@@ -63,9 +67,7 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-
         $validated = $request->validate([
-
             'name' => 'required|string',
             'description' => 'required|string|nullable',
             'date' => 'required|date',
@@ -74,10 +76,27 @@ class EventController extends Controller
             'typology_id' => 'required|integer|exists:typologies,id',
             'supervisor_id' => 'required|integer|exists:supervisors,id',
             'room_id' => 'required|integer|exists:rooms,id',
-
+            'course_id' => 'array',
+            'course_id.*' => 'integer|exists:courses,id',
         ]);
 
-        return Event::create($validated); //May return the entire event
+        $event = Event::create($validated);
+
+        if ($request->has('course_id') && is_array($request->course_id)) {
+            $courseIds = array_unique($request->course_id);
+
+            $courseEventRecords = [];
+            foreach ($courseIds as $courseId) {
+                $courseEventRecords[] = [
+                    'course_id' => $courseId,
+                    'event_id' => $event->id,
+                ];
+            }
+
+            DB::table('course_event')->insert($courseEventRecords);
+        }
+
+        return $event;
     }
 
     public function update(Request $request, $id)
@@ -108,6 +127,11 @@ class EventController extends Controller
         }
         if($request->has("room_id")){
             $event->room_id = $request->get("room_id");
+        }
+
+        if ($request->has('course_id') && is_array($request->course_id)) {
+            $courseIds = array_unique($request->course_id);
+            $event->courses()->sync($courseIds);
         }
 
         return $event->save(); //May return the entire event
