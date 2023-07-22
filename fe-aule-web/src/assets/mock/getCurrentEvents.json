@@ -1,0 +1,66 @@
+[
+  {
+    "id": 0,
+    "title": "Evento 1",
+    "start": "09:00",
+    "end": "11:00",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima repellat explicabo quod aliquam, placeat excepturi alias error. Vero, in eaque?",
+    "type": "Lezione",
+    "date": "string",
+    "supervisor": {
+      "id": 0,
+      "name": "string",
+      "email": "string"
+    },
+    "room": {
+      "id": 0,
+      "name": "string",
+      "place": "string",
+      "building": "string",
+      "description": "string",
+      "floor": 0
+    }
+  },
+  {
+    "id": 1,
+    "title": "Evento 2",
+    "start": "09:00",
+    "end": "11:00",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima repellat explicabo quod aliquam, placeat excepturi alias error. Vero, in eaque?",
+    "type": "Lezione",
+    "date": "string",
+    "supervisor": {
+      "id": 0,
+      "name": "string",
+      "email": "string"
+    },
+    "room": {
+      "id": 0,
+      "name": "string",
+      "place": "string",
+      "building": "string",
+      "floor": 0
+    }
+  },
+  {
+    "id": 2,
+    "title": "Evento 3",
+    "start": "09:00",
+    "end": "11:00",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima repellat explicabo quod aliquam, placeat excepturi alias error. Vero, in eaque?",
+    "type": "Lezione",
+    "date": "string",
+    "supervisor": {
+      "id": 0,
+      "name": "string",
+      "email": "string"
+    },
+    "room": {
+      "id": 0,
+      "name": "string",
+      "place": "string",
+      "building": "string",
+      "floor": 0
+    }
+  }
+]

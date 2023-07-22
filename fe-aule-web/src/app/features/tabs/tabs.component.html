@@ -1,0 +1,25 @@
+<div class="container">
+  <nav
+    mat-tab-nav-bar
+    class="tabs"
+    animationDuration="0ms"
+    mat-stretch-tabs="false"
+    mat-align-tabs="start"
+  >
+    <a
+      mat-tab-link
+      *ngFor="let link of navLinks"
+      routerLinkActive
+      [queryParams]="{groupId: groupId}"
+      [routerLink]="link.link"
+      [active]="activeLink == link.index"
+      (click)="setActiveLink(link.index)"
+    >
+      {{ link.label }}
+    </a>
+  </nav>
+
+  <div class="pages">
+    <router-outlet></router-outlet>
+  </div>
+</div>

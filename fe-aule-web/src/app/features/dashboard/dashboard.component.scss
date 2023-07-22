@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  background-color: aquamarine;
+  justify-content: center;
+}
+
+.cont {
+  width: 80%;
+  margin-top: 2%;
+}
+
+.accordion .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion .mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+.form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+mat-radio-group {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.import-export {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5%;
+  padding-top: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+}

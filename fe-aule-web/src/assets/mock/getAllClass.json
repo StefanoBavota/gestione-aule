@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "name": "Aula 1",
+    "capacity": 20,
+    "notes": "Lorem ipsum dolore sit amet",
+    "icon": "https://material.angular.io/assets/img/examples/shiba1.jpg",
+    "number_of_electrical_othlets": 2,
+    "number_of_ethernet_ports": 3
+  },
+  {
+    "id": 1,
+    "name": "Aula 2",
+    "capacity": 20,
+    "notes": "Lorem ipsum dolore sit amet",
+    "number_of_electrical_othlets": 2,
+    "number_of_ethernet_ports": 3
+  },
+  {
+    "id": 2,
+    "name": "Aula 3",
+    "capacity": 20,
+    "notes": "Lorem ipsum dolore sit amet",
+    "number_of_electrical_othlets": 2,
+    "number_of_ethernet_ports": 4
+  }
+]

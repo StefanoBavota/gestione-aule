@@ -1,0 +1,15 @@
+<mat-toolbar class="nav">
+  <div class="nav_logo" (click)="goHome()">
+    <img class="nav_logo_img" src="https://aule.univaq.it/Logo_Top_Left.png" />
+    <span>Home</span>
+  </div>
+  <span class="nav_spacer"></span>
+  <button mat-button color="primary" class="nav_btn" *ngIf="!isAdminLogged" (click)="goToLogin()">
+    LOGIN
+  </button>
+  <button mat-button color="primary" [matMenuTriggerFor]="menu" *ngIf="isAdminLogged">ADMIN</button>
+  <mat-menu #menu="matMenu" xPosition="before" class="custom-menu">
+    <button mat-menu-item (click)="goToDashboard()">Dashboard</button>
+    <button mat-menu-item (click)="onLogout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>

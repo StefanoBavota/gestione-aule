@@ -1,0 +1,56 @@
+[
+  {
+    "id": 0,
+    "name": "Ateneo",
+    "description": "Aule",
+    "link": "https://aule.univaq.it/images_structures/diceaa.png"
+  },
+  {
+    "id": 1,
+    "name": "CLA",
+    "description": "Aule",
+    "link": "https://aule.univaq.it/images_structures/cla.png"
+  },
+  {
+    "id": 2,
+    "name": "COSBE",
+    "description": "Polo Lab. Coppito",
+    "link": "https://aule.univaq.it/images_structures/cosbe.png"
+  },
+  {
+    "id": 3,
+    "name": "DICEAA",
+    "description": "Aule",
+    "link": "https://aule.univaq.it/images_structures/diceaa.png"
+  },
+  {
+    "id": 4,
+    "name": "DIIIE",
+    "description": "Aule Roio",
+    "link": "https://aule.univaq.it/images_structures/diiie.png"
+  },
+  {
+    "id": 5,
+    "name": "DIIIE",
+    "description": "Aule Acquasanta",
+    "link": "https://aule.univaq.it/images_structures/diiie.png"
+  },
+  {
+    "id": 6,
+    "name": "Ateneo",
+    "description": "Aule",
+    "link": "https://aule.univaq.it/images_structures/diceaa.png"
+  },
+  {
+    "id": 7,
+    "name": "CLA",
+    "description": "Aule",
+    "link": "https://aule.univaq.it/images_structures/cla.png"
+  },
+  {
+    "id": 8,
+    "name": "COSBE",
+    "description": "Polo Lab. Coppito",
+    "link": "https://aule.univaq.it/images_structures/cosbe.png"
+  }
+]

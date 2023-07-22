@@ -1,0 +1,43 @@
+<div class="container">
+  <mat-dialog-actions align="end">
+    <button
+      mat-button
+      mat-dialog-close
+      mat-mini-fab
+      color="warn"
+      aria-label="Example icon button with a delete icon"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-dialog-actions>
+
+  <!-- INFO MODALE -->
+  <mat-card-header>
+    <mat-card-title>Dettagli Evento</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p><strong>Nome evento:</strong> {{ event.name }}</p>
+    <p><strong>Tipologia:</strong> {{ event.typology!.name }}</p>
+    <p><strong>Data:</strong> {{ event.date }}</p>
+    <p><strong>Ora inizio:</strong> {{ event.start_time!.slice(0, -3) }}</p>
+    <p><strong>Ora fine:</strong> {{ event.end_time!.slice(0, -3) }}</p>
+    <p><strong>Descrizione:</strong> {{ event.description }}</p>
+    <p><strong>Aula:</strong> {{ event.room!.name }}</p>
+    <p><strong>Capacità aula:</strong> {{ event.room!.capacity }}</p>
+    <!-- Aggiungi altre informazioni dell'aula se necessario -->
+    <p><strong>Docente:</strong> {{ event.supervisor!.name }}</p>
+    <p><strong>Email docente:</strong> {{ event.supervisor!.email }}</p>
+    <!-- Aggiungi altre informazioni del docente se necessario -->
+    <p><strong>Corsi associati:</strong></p>
+    <ul>
+      <li *ngFor="let course of event.courses">{{ course.name }}</li>
+    </ul>
+  </mat-card-content>
+
+  <!-- BTN CHIUDI -->
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close mat-raised-button color="primary">
+      Chiudi
+    </button>
+  </mat-dialog-actions>
+</div>

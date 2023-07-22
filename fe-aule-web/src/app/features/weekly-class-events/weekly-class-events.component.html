@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="select">
+    <form>
+      <mat-form-field class="form">
+        <mat-label class="mat-label">Seleziona aula</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="class" (selectionChange)="onClassSelected($event.value)">
+          <mat-option *ngFor="let class of classList" [value]="class.id">
+            {{ class.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="calendar">
+    <app-calendar [dateRef]="dateRef" todayLabel="Oggi" lang="it" (dayClicked)="onDayClicked($event)"></app-calendar>
+  </div>
+</div>
+
+<div class="fullcalendar">
+  <mat-card class="card">
+    <full-calendar #calendar [options]="calendarOptions">
+      <ng-template #eventContent let-arg>
+        <b>{{ arg.timeText }}</b>
+        <br />
+        <i>{{ arg.event.title }}</i>
+      </ng-template>
+    </full-calendar>
+  </mat-card>
+</div>
+
+<!-- <div class="export">
+  <button mat-raised-button color="primary" class="mat-button-export" (click)="exportFile()">
+    <mat-icon>download</mat-icon> Esporta in CSV
+  </button>
+</div> -->

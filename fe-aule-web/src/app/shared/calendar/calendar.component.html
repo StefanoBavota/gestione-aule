@@ -1,0 +1,37 @@
+<div class="container">
+  <mat-card class="card">
+    <div class="header">
+      <span class="month"> {{ month }} {{ year }}</span>
+
+      <div class="button-section">
+        <button mat-button (click)="onPreviousMonth()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+
+        <button mat-button (click)="onSetToday()">
+          <mat-icon>home</mat-icon>
+        </button>
+
+        <button mat-button (click)="onNextMonth()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="calendar">
+      <div class="days">
+        <div
+          *ngFor="let dayItem of dayItems"
+          class="day"
+          [class.--weekend]="dayItem.isWeekend"
+          [class.--disabled]="dayItem.isDisabled"
+          [class.--today]="dayItem.isNow"
+          [class.--selected]="dayItem.isSelected"
+          (click)="onDayItemClick(dayItem)"
+        >
+          {{ dayItem.label }}
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

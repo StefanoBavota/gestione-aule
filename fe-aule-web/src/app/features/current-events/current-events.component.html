@@ -1,0 +1,32 @@
+<div class="container">
+  <!-- <div class="calendar">
+    <app-calendar [dateRef]="dateRef" todayLabel="Oggi" lang="it" (dayClicked)="onDayClicked($event)"></app-calendar>
+  </div> -->
+
+  <div class="cont">
+    <div class="cont_grid">
+      <mat-card
+        class="event"
+        (click)="openDialog(event.id)"
+        *ngFor="let event of currentEventsList"
+      >
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{ event.name }}</mat-card-title>
+            <mat-card-subtitle
+              >{{ event.start_time!.slice(0, -3) }} - {{ event.end_time!.slice(0, -3) }}</mat-card-subtitle
+            >
+            <mat-card-subtitle>Lezione 6{{ event.typology!.name }}</mat-card-subtitle>
+            <mat-card-subtitle>Aula 5{{ event.room!.name }}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content class="description">
+          {{ event.description }}
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div *ngIf="currentEventsList.length === 0">
+      <h1 class="message">Nessun evento nelle prossime 3 ore</h1>
+    </div>
+  </div>
+</div>

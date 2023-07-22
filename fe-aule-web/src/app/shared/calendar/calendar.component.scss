@@ -1,0 +1,116 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+$primary: mat.define-palette(mat.$indigo-palette);
+$accent: mat.define-palette(mat.$pink-palette);
+$warn: mat.define-palette(mat.$red-palette);
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.month {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
+}
+
+:host * {
+  box-sizing: border-box;
+}
+
+:host {
+  --month-calendar-header-height: 50px;
+  --month-calendar-header-margin: 1rem;
+
+  display: block;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--month-calendar-header-margin);
+  padding: 1rem;
+  height: var(--month-calendar-header-height);
+}
+
+.button-section {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar {
+  display: flex;
+  height: calc(
+    100% - var(--month-calendar-header-height) -
+      var(--month-calendar-header-margin)
+  );
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: repeat(5, 1fr);
+  gap: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.day {
+  transition: 0.1s all ease-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.day:hover {
+  background-color: #ccc;
+}
+
+.day.--weekend {
+  font-weight: bold;
+}
+
+.day.--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.day.--today {
+  text-decoration: underline;
+  border: 2px solid #ccc;
+}
+
+.day.--selected {
+  background-color: #3f51b5 !important;
+  color: white;
+  font-weight: 500;
+}
+
+.change-month {
+  padding: 0 0.5rem;
+  font-size: 1.25rem;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: 0.1s all ease-out;
+}
+
+.change-month:hover {
+  background-color: #ccc;
+}

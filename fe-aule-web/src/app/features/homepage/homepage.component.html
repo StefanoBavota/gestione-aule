@@ -1,0 +1,16 @@
+<div class="container">
+  <!-- SEARCH BAR SECTION -->
+  <div class="full-cont">
+    <span class="full-cont_title">Gruppi ateneo</span>
+  </div>
+
+  <!-- CARD SECTION -->
+  <div class="cont">
+    <div class="cont_card" *ngFor="let group of groupsList">
+      <app-home-card
+        [group]="group"
+        (click)="onSelectGroup(group.id)"
+      ></app-home-card>
+    </div>
+  </div>
+</div>

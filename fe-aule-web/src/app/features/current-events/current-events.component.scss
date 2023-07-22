@@ -1,0 +1,152 @@
+.container {
+  background-color: lightcyan;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar {
+  width: 50%;
+  height: 40vh;
+  margin-top: 2%;
+}
+
+.cont {
+  width: 90%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &_grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+  }
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 350px;
+  height: 170px;
+  margin-bottom: 8px;
+}
+
+.event:hover {
+  cursor: pointer;
+  background-color: #f8bbd0;
+}
+
+.description {
+  padding: 0 5%;
+}
+
+.fullsection {
+  width: 90%;
+  height: 100px;
+  display: flex;
+}
+
+.left {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  overflow: auto;
+  white-space: nowrap;
+  overflow-y: hidden;
+  gap: 10px;
+}
+
+.card {
+  background-color: #f8bbd0;
+  width: 80%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.avatar {
+  margin-right: 16px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.content {
+  flex: 1;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1%;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.info {
+  flex: 1;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1%;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.message {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
