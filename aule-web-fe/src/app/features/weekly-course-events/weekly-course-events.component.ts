@@ -121,13 +121,13 @@ export class WeeklyCourseEventsComponent implements OnInit {
 
   mapSpecificFields(array: IEvents[]) {
     return array.map((obj: any) => {
-      const { name, start_time, end_time, date, ...rest } = obj;
+      const { name, startTime, endTime, date, ...rest } = obj;
 
-      const startDate = new Date(`${date}T${start_time}`);
-      const endDate = new Date(`${date}T${end_time}`);
+      const startDate = new Date(`${date}T${startTime}`);
+      const endDate = new Date(`${date}T${endTime}`);
 
-      startDate.setUTCHours(start_time.split(':')[0], start_time.split(':')[1]);
-      endDate.setUTCHours(end_time.split(':')[0], end_time.split(':')[1]);
+      startDate.setUTCHours(startTime.split(':')[0], startTime.split(':')[1]);
+      endDate.setUTCHours(endTime.split(':')[0], endTime.split(':')[1]);
 
       const formattedStartDate = `${startDate.toISOString().slice(0, 19)}`;
       const formattedEndDate = `${endDate.toISOString().slice(0, 19)}`;

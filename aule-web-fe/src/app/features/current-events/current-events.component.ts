@@ -47,10 +47,10 @@ export class CurrentEventsComponent implements OnInit {
   }
 
   mapSpecificFields(obj: IEvents) {
-    const { name, start_time, end_time, date, ...rest } = obj;
+    const { name, startTime, endTime, date, ...rest } = obj;
 
-    const startDate = new Date(`${date}T${start_time}`);
-    const endDate = new Date(`${date}T${end_time}`);
+    const startDate = new Date(`${date}T${startTime}`);
+    const endDate = new Date(`${date}T${endTime}`);
 
     const formattedStartDate = startDate
       .toISOString()

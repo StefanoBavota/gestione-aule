@@ -19,8 +19,8 @@
     <p><strong>Nome evento:</strong> {{ event.name }}</p>
     <p><strong>Tipologia:</strong> {{ event.typology!.name }}</p>
     <p><strong>Data:</strong> {{ event.date }}</p>
-    <p><strong>Ora inizio:</strong> {{ event.start_time!.slice(0, -3) }}</p>
-    <p><strong>Ora fine:</strong> {{ event.end_time!.slice(0, -3) }}</p>
+    <p><strong>Ora inizio:</strong> {{ event.startTime }}</p>
+    <p><strong>Ora fine:</strong> {{ event.endTime }}</p>
     <p><strong>Descrizione:</strong> {{ event.description }}</p>
     <p><strong>Aula:</strong> {{ event.room!.name }}</p>
     <p><strong>Capacità aula:</strong> {{ event.room!.capacity }}</p>

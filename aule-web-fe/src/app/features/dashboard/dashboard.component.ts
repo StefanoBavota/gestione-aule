@@ -357,6 +357,7 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  provaaaa: number[] | undefined = [];
   onEventSelected(event: MatAutocompleteSelectedEvent): void {
     const selectedEvent = event.option.value;
 
@@ -367,12 +368,12 @@ export class DashboardComponent implements OnInit {
     this.eventId = selectedEventsId;
     this.apiService.getEventById(this.eventId).subscribe((res) => {
       if (res) {
-        console.log(res);
+        this.provaaaa = res.course_id
         this.eventsForm.patchValue({
           title: res.name || '',
           date: res.date || '',
-          start: res.start_time || '',
-          end: res.end_time || '',
+          start: res.startTime || '',
+          end: res.endTime || '',
           description: res.description || '',
           typology_id: res.typology_id || 0,
           supervisor_id: res.supervisor_id || 0,

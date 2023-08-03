@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { IGroup, IDailyEventsResponse, ICourse, IClassroom, IEvents, ISupervisor, ILocation, ITypology } from '../interfaces/response.interface';
 @Injectable()
 export class ApiService {
-  indexPath: string = 'http://localhost/api';
+  indexPath: string = 'http://localhost:8080/api';
   constructor(private http: HttpClient) {}
 
-  //DONE
+  //TEST
   login(body: any) {
     return this.http.post<any>(`${this.indexPath}/auth/login`, body);
   }
@@ -14,34 +14,34 @@ export class ApiService {
   //DONE
   getClassByGroupId(groupId: number) {
     const params = new HttpParams().set('groupId', groupId.toString());
-    return this.http.get<IClassroom[]>(`${this.indexPath}/classrooms`, { params });
+    return this.http.get<IClassroom[]>(`${this.indexPath}/rooms`, { params });
   }
 
   //DONE
   getEventsOfWeekByClassId(classId: number, selectedDay: Date) {
     let params = new HttpParams()
       .set('classId', classId.toString())
-      .set('selectedDay', selectedDay.toISOString());
+      .set('selectedDay', selectedDay.toISOString().slice(0, 10));
 
-    return this.http.get<IEvents[]>(`${this.indexPath}/events`, { params });
+    return this.http.get<IEvents[]>(`${this.indexPath}/events/rooms-current`, { params });
   }
 
-  //BUG
+  //DONE
   getEventsOfWeekByCourseId(courseId: number, selectedDay: Date) {
     let params = new HttpParams()
       .set('courseId', courseId.toString())
-      .set('selectedDay', selectedDay.toISOString());
+      .set('selectedDay', selectedDay.toISOString().slice(0, 10));
 
-    return this.http.get<IEvents[]>(`${this.indexPath}/events/current`, { params });
+    return this.http.get<IEvents[]>(`${this.indexPath}/events/course-current`, { params });
   }
 
   //DONE
   getDailyEventsByDate(groupId: number, selectedDay: Date) {
     let params = new HttpParams()
       .set('groupId', groupId.toString())
-      .set('selectedDay', selectedDay.toISOString());
+      .set('selectedDay', selectedDay.toISOString().slice(0, 10));
     return this.http.get<IDailyEventsResponse[]>(
-      `${this.indexPath}/classrooms/get-room-events`,
+      `${this.indexPath}/rooms/get-room-events`,
       { params }
     );
   }
@@ -61,7 +61,7 @@ export class ApiService {
 
   //DONE
   getAllClass() {
-    return this.http.get<IClassroom[]>(`${this.indexPath}/classrooms`);
+    return this.http.get<IClassroom[]>(`${this.indexPath}/rooms`);
   }
 
   //DONE
@@ -101,7 +101,7 @@ export class ApiService {
 
   //DONE
   getClassById(classId: number | undefined) {
-    return this.http.get<IClassroom>(`${this.indexPath}/classrooms/${classId}`);
+    return this.http.get<IClassroom>(`${this.indexPath}/rooms/${classId}`);
   }
 
   //DONE
@@ -109,24 +109,24 @@ export class ApiService {
     return this.http.get<IEvents>(`${this.indexPath}/events/${eventId}`);
   }
 
-  // DONE
+  //DONE
   newGroup(body: any) {
     return this.http.post<IGroup>(`${this.indexPath}/groups`, body);
   }
 
-  // DONE
+  //DONE
   editGroup(body: any, groupId: number | undefined) {
     return this.http.put<IGroup>(`${this.indexPath}/groups/${groupId}`, body);
   }
 
-  // DONE
+  //DONE
   newClass(body: any) {
-    return this.http.post<IClassroom>(`${this.indexPath}/classrooms`, body);
+    return this.http.post<IClassroom>(`${this.indexPath}/rooms`, body);
   }
 
-  // DONE
+  //DONE
   editClass(body: any, classId: number | undefined) {
-    return this.http.put<IClassroom>(`${this.indexPath}/classrooms/${classId}`, body);
+    return this.http.put<IClassroom>(`${this.indexPath}/rooms/${classId}`, body);
   }
 
   //DONE

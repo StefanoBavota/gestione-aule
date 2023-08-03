@@ -34,8 +34,8 @@ export class DashboardService {
     return {
       name: obj.title,
       date: obj.date,
-      start_time: obj.start,
-      end_time: obj.end,
+      startTime: obj.start,
+      endTime: obj.end,
       description: obj.description,
       typology_id: obj.typology_id,
       supervisor_id: obj.supervisor_id,

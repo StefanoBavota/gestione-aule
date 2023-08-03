@@ -10,8 +10,8 @@ export interface IEvents {
   courses?: ICourse[];
   typology?: ITypology;
   name?: string;
-  start_time?: string;
-  end_time?: string;
+  startTime?: string;
+  endTime?: string;
   typology_id?: number;
   supervisor_id?: number;
   room_id?: number;
