@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       this.apiService.login(this.form.value).subscribe((res) => {
-        localStorage.setItem('jwt', res.access_token);
+        localStorage.setItem('jwt', res.token);
         this.router.navigate(['/home']);
       });
     }
