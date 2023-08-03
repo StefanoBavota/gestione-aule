@@ -7,7 +7,7 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "course_event")
+@Table(name = "course_event", uniqueConstraints = {@UniqueConstraint(columnNames = {"course_id", "event_id", "id"})})
 public class CourseEvent {
 
     @Id
