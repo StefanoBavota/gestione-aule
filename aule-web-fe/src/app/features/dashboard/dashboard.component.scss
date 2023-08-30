@@ -21,14 +21,13 @@
 }
 
 .form {
-  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
 mat-radio-group {
-  width: 50%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
@@ -41,4 +40,16 @@ mat-radio-group {
   padding-top: 3%;
   padding-right: 3%;
   padding-bottom: 3%;
+}
+
+.pair-list {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pair {
+  width: calc(50% - 10px);
+  margin-bottom: 20px;
 }

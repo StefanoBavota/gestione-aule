@@ -18,27 +18,29 @@
               <mat-radio-button value="2">Modifica</mat-radio-button>
             </mat-radio-group>
 
-            <mat-form-field class="example-full-width" *ngIf="showAccordionGroup">
-              <mat-label>Seleziona un gruppo</mat-label>
-              <input type="text" matInput formControlName="groupId" [matAutocomplete]="auto" />
-              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onGroupSelected($event)">
-                <mat-option *ngFor="let group of filteredGroup | async" [value]="group.name">
-                  {{ group.name }}
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
+            <div class="pair-list">
+              <mat-form-field class="example-full-width pair" *ngIf="showAccordionGroup">
+                <mat-label>Seleziona un gruppo</mat-label>
+                <input type="text" matInput formControlName="groupId" [matAutocomplete]="auto" />
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onGroupSelected($event)">
+                  <mat-option *ngFor="let group of filteredGroup | async" [value]="group.name">
+                    {{ group.name }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="text" matInput placeholder="Nome gruppo" formControlName="name" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="text" matInput placeholder="Nome gruppo" formControlName="name" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="text" matInput placeholder="Descrizione" formControlName="description" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="text" matInput placeholder="Descrizione" formControlName="description" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="text" matInput placeholder="Link icona" formControlName="link" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="text" matInput placeholder="Link icona" formControlName="link" />
+              </mat-form-field>
+            </div>
           </div>
 
           <mat-action-row>
@@ -67,68 +69,70 @@
               <mat-radio-button value="2">Modifica</mat-radio-button>
             </mat-radio-group>
 
-            <mat-form-field class="example-full-width" *ngIf="showAccordionClass">
-              <mat-label>Seleziona una classe</mat-label>
-              <input type="text" matInput formControlName="classId" [matAutocomplete]="auto" />
-              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onClassSelected($event)">
-                <mat-option *ngFor="let class of filteredClass | async" [value]="class.name">
-                  {{ class.name }}
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
+            <div class="pair-list">
+              <mat-form-field class="example-full-width pair" *ngIf="showAccordionClass">
+                <mat-label>Seleziona una classe</mat-label>
+                <input type="text" matInput formControlName="classId" [matAutocomplete]="auto" />
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onClassSelected($event)">
+                  <mat-option *ngFor="let class of filteredClass | async" [value]="class.name">
+                    {{ class.name }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="text" matInput placeholder="Nome classe" formControlName="name" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="text" matInput placeholder="Nome classe" formControlName="name" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="text" matInput placeholder="Descrizione" formControlName="notes" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="text" matInput placeholder="Descrizione" formControlName="notes" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="text" matInput placeholder="Link icona" formControlName="icon" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="text" matInput placeholder="Link icona" formControlName="icon" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="number" matInput placeholder="Capienza" formControlName="capacity" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="number" matInput placeholder="Capienza" formControlName="capacity" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="number" matInput placeholder="Numero di prese elettriche"
-                formControlName="number_of_electrical_outlets" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="number" matInput placeholder="Numero di prese elettriche"
+                  formControlName="number_of_electrical_outlets" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="number" matInput placeholder="Numero port ethernet"
-                formControlName="number_of_ethernet_ports" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="number" matInput placeholder="Numero port ethernet"
+                  formControlName="number_of_ethernet_ports" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <mat-label>Seleziona responsabile</mat-label>
-              <mat-select formControlName="supervisor_id">
-                <mat-option *ngFor="let supervisor of supervisorList" [value]="supervisor.id">
-                  {{ supervisor.name }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <mat-label>Seleziona responsabile</mat-label>
+                <mat-select formControlName="supervisor_id">
+                  <mat-option *ngFor="let supervisor of supervisorList" [value]="supervisor.id">
+                    {{ supervisor.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-            <mat-form-field>
-              <mat-label>Seleziona un gruppo</mat-label>
-              <mat-select formControlName="group_id">
-                <mat-option *ngFor="let group of groupsList" [value]="group.id">
-                  {{ group.name }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <mat-label>Seleziona un gruppo</mat-label>
+                <mat-select formControlName="group_id">
+                  <mat-option *ngFor="let group of groupsList" [value]="group.id">
+                    {{ group.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-            <mat-form-field>
-              <mat-label>Seleziona un luogo</mat-label>
-              <mat-select formControlName="location_id">
-                <mat-option *ngFor="let location of locationList" [value]="location.id">
-                  {{ location.building }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <mat-label>Seleziona un luogo</mat-label>
+                <mat-select formControlName="location_id">
+                  <mat-option *ngFor="let location of locationList" [value]="location.id">
+                    {{ location.building }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
           </div>
 
           <mat-action-row>
@@ -157,69 +161,71 @@
               <mat-radio-button value="2">Modifica</mat-radio-button>
             </mat-radio-group>
 
-            <mat-form-field class="example-full-width" *ngIf="showAccordionEvent">
-              <mat-label>Seleziona un evento</mat-label>
-              <input type="text" matInput formControlName="eventId" [matAutocomplete]="auto" />
-              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onEventSelected($event)">
-                <mat-option *ngFor="let events of filteredEvents | async" [value]="events.name">
-                  {{ events.name }}
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
+            <div class="pair-list">
+              <mat-form-field class="example-full-width pair" *ngIf="showAccordionEvent">
+                <mat-label>Seleziona un evento</mat-label>
+                <input type="text" matInput formControlName="eventId" [matAutocomplete]="auto" />
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onEventSelected($event)">
+                  <mat-option *ngFor="let events of filteredEvents | async" [value]="events.name">
+                    {{ events.name }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="text" matInput placeholder="Nome evento" formControlName="title" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="text" matInput placeholder="Nome evento" formControlName="title" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="date" matInput placeholder="Data" formControlName="date" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="date" matInput placeholder="Data" formControlName="date" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input matInput matInput placeholder="Orario inizio" type="time" formControlName="start" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input matInput matInput placeholder="Orario inizio" type="time" formControlName="start" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input matInput matInput placeholder="Orario fine" type="time" formControlName="end" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input matInput matInput placeholder="Orario fine" type="time" formControlName="end" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <input type="text" matInput placeholder="Descrizione" formControlName="description" />
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <input type="text" matInput placeholder="Descrizione" formControlName="description" />
+              </mat-form-field>
 
-            <mat-form-field>
-              <mat-label>Seleziona un tipo</mat-label>
-              <mat-select formControlName="typology_id">
-                <mat-option *ngFor="let typology of typologyList" [value]="typology.id">
-                  {{ typology.name }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <mat-label>Seleziona un tipo</mat-label>
+                <mat-select formControlName="typology_id">
+                  <mat-option *ngFor="let typology of typologyList" [value]="typology.id">
+                    {{ typology.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-            <mat-form-field>
-              <mat-label>Seleziona un supervisore</mat-label>
-              <mat-select formControlName="supervisor_id">
-                <mat-option *ngFor="let supervisor of supervisorList" [value]="supervisor.id">
-                  {{ supervisor.name }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <mat-label>Seleziona un supervisore</mat-label>
+                <mat-select formControlName="supervisor_id">
+                  <mat-option *ngFor="let supervisor of supervisorList" [value]="supervisor.id">
+                    {{ supervisor.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-            <mat-form-field>
-              <mat-label>Seleziona un'aula</mat-label>
-              <mat-select formControlName="room_id">
-                <mat-option *ngFor="let class of classList" [value]="class.id">
-                  {{ class.name }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <mat-label>Seleziona un'aula</mat-label>
+                <mat-select formControlName="room_id">
+                  <mat-option *ngFor="let class of classList" [value]="class.id">
+                    {{ class.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
 
-            <mat-form-field>
-              <mat-label>Seleziona i corsi associati</mat-label>
-              <mat-select formControlName="course_id" multiple>
-                <mat-option *ngFor="let course of courseList" [value]="course.id">{{course.name}}</mat-option>
-              </mat-select>
-            </mat-form-field>
+              <mat-form-field class="pair">
+                <mat-label>Seleziona i corsi associati</mat-label>
+                <mat-select formControlName="course_id" multiple>
+                  <mat-option *ngFor="let course of courseList" [value]="course.id">{{course.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
           </div>
           <mat-action-row>
             <button mat-button color="warn" (click)="clearFormEvent()">
