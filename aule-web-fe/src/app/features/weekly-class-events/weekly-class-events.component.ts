@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IClassroom, IEvents } from '../interfaces/response.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { EventModalComponent } from 'src/app/shared/event-modal/event-modal.component';
+
 @Component({
   selector: 'app-weekly-class-events',
   templateUrl: './weekly-class-events.component.html',
@@ -30,7 +31,7 @@ export class WeeklyClassEventsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private dialogRef: MatDialog 
+    private dialogRef: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -92,7 +93,6 @@ export class WeeklyClassEventsComponent implements OnInit {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    // let eventInfo = clickInfo.event._def.extendedProps;
     this.openDialog(+clickInfo.event._def.publicId);
   }
 
@@ -145,4 +145,6 @@ export class WeeklyClassEventsComponent implements OnInit {
       };
     });
   }
+
+
 }

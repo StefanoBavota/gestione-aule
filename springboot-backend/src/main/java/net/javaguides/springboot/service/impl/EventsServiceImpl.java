@@ -1,5 +1,8 @@
 package net.javaguides.springboot.service.impl;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.sql.Date;
 import java.time.*;
 import java.time.format.DateTimeParseException;
@@ -8,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import net.javaguides.springboot.dto.request.EventsRequest;
 import net.javaguides.springboot.dto.response.EventsResponse;
 import net.javaguides.springboot.dto.response.RoomsResponse;
@@ -19,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
@@ -149,6 +155,41 @@ public class EventsServiceImpl implements EventsService {
         event.setTypologies(typology.orElse(null));
 
         return eventsRepository.save(event);
+    }
+
+    //------------- EXPORT CSV -------------
+    @Override
+    public byte[] exportAllEventsCsv() {
+        List<EventsResponse> eventsResponseList = getAllEvents();
+
+        try {
+            StringWriter writer = new StringWriter();
+            CSVWriter csvWriter = new CSVWriter(writer);
+
+            String[] header = {"ID", "Date", "Start Time", "End Time", "Name", "Description", "Typology", "Supervisor", "Room"};
+            csvWriter.writeNext(header);
+
+            for (EventsResponse event : eventsResponseList) {
+                String[] eventData = {
+                        String.valueOf(event.getId()),
+                        event.getDate(),
+                        event.getStartTime(),
+                        event.getEndTime(),
+                        event.getName(),
+                        event.getDescription(),
+                        event.getTypology().getName(),
+                        event.getSupervisor().getName(),
+                        event.getRoom().getName()
+                };
+                csvWriter.writeNext(eventData);
+            }
+
+            csvWriter.close();
+
+            return writer.toString().getBytes();
+        } catch (Exception e) {
+            throw new RuntimeException("Errore durante la generazione del CSV", e);
+        }
     }
 
     //------------- DELETE -------------

@@ -5,8 +5,12 @@ import net.javaguides.springboot.dto.response.EventsResponse;
 import net.javaguides.springboot.dto.response.RoomsResponse;
 import net.javaguides.springboot.service.EventsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
@@ -70,5 +74,20 @@ public class EventsController {
     @GetMapping("/next-events")
     public ResponseEntity<List<EventsResponse>> getNextEventsByGroupId(@RequestParam Long groupId){
         return ResponseEntity.ok(eventsService.getNextEventsByGroupId(groupId));
+    }
+
+    @GetMapping("/export-csv")
+    public ResponseEntity<byte[]> exportAllEventsCsv() {
+        try {
+            byte[] csvBytes = eventsService.exportAllEventsCsv();
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.TEXT_PLAIN);
+            headers.setContentDispositionFormData("attachment", "events.csv");
+
+            return new ResponseEntity<>(csvBytes, headers, HttpStatus.OK);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Errore durante la generazione del CSV".getBytes());
+        }
     }
 }

@@ -237,11 +237,15 @@
       </mat-expansion-panel>
     </mat-accordion>
 
-    <!-- <div class="import-export">
-      <input #csvInput hidden type="file" (change)="csvInputChange($event)" accept=".csv" />
+    <div class="import-export">
+      <!-- <input #csvInput hidden type="file" (change)="csvInputChange($event)" accept=".csv" />
       <button mat-raised-button color="primary" (click)="csvInput.click()">
         <mat-icon>cloud_upload</mat-icon> Importa in CSV
+      </button> -->
+
+      <button mat-raised-button color="primary" class="mat-button-export" (click)="exportFile()">
+        <mat-icon>download</mat-icon> Esporta in CSV
       </button>
-    </div> -->
+    </div>
   </div>
 </div>

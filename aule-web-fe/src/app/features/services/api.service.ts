@@ -1,6 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IGroup, IDailyEventsResponse, ICourse, IClassroom, IEvents, ISupervisor, ILocation, ITypology } from '../interfaces/response.interface';
+import {
+  IGroup,
+  IDailyEventsResponse,
+  ICourse,
+  IClassroom,
+  IEvents,
+  ISupervisor,
+  ILocation,
+  ITypology,
+} from '../interfaces/response.interface';
 @Injectable()
 export class ApiService {
   indexPath: string = 'http://localhost:8080/api';
@@ -23,7 +32,9 @@ export class ApiService {
       .set('classId', classId.toString())
       .set('selectedDay', selectedDay.toISOString().slice(0, 10));
 
-    return this.http.get<IEvents[]>(`${this.indexPath}/events/rooms-current`, { params });
+    return this.http.get<IEvents[]>(`${this.indexPath}/events/rooms-current`, {
+      params,
+    });
   }
 
   //DONE
@@ -32,7 +43,9 @@ export class ApiService {
       .set('courseId', courseId.toString())
       .set('selectedDay', selectedDay.toISOString().slice(0, 10));
 
-    return this.http.get<IEvents[]>(`${this.indexPath}/events/course-current`, { params });
+    return this.http.get<IEvents[]>(`${this.indexPath}/events/course-current`, {
+      params,
+    });
   }
 
   //DONE
@@ -89,10 +102,11 @@ export class ApiService {
     return this.http.get<IEvents[]>(`${this.indexPath}/events`);
   }
 
-  // getFileCsv() {
-  //   return this.http.get<any>(`${this.indexPath}/events/export-csv`).subscribe(res => {
-  //   })
-  // }
+  //DONE
+  getFileCsv() {
+    const url = `${this.indexPath}/events/export-csv`;
+    return this.http.get(url, { responseType: 'blob' });
+  }
 
   //DONE
   getGroupById(groupId: number | undefined) {
@@ -126,7 +140,10 @@ export class ApiService {
 
   //DONE
   editClass(body: any, classId: number | undefined) {
-    return this.http.put<IClassroom>(`${this.indexPath}/rooms/${classId}`, body);
+    return this.http.put<IClassroom>(
+      `${this.indexPath}/rooms/${classId}`,
+      body
+    );
   }
 
   //DONE

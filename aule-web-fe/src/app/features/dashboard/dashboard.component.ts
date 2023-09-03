@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ApiService } from '../services/api.service';
-import { ICourse, IGroup, ILocation, ISupervisor, ITypology } from '../interfaces/response.interface';
+import {
+  ICourse,
+  IGroup,
+  ILocation,
+  ISupervisor,
+  ITypology,
+} from '../interfaces/response.interface';
 import { IClassroom, IEvents } from '../interfaces/response.interface';
 import { Observable, map, startWith } from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -12,6 +18,7 @@ import {
   MatSnackBarVerticalPosition,
   MatSnackBarConfig,
 } from '@angular/material/snack-bar';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-dashboard',
@@ -368,7 +375,7 @@ export class DashboardComponent implements OnInit {
     this.eventId = selectedEventsId;
     this.apiService.getEventById(this.eventId).subscribe((res) => {
       if (res) {
-        this.provaaaa = res.course_id
+        this.provaaaa = res.course_id;
         this.eventsForm.patchValue({
           title: res.name || '',
           date: res.date || '',
@@ -388,8 +395,6 @@ export class DashboardComponent implements OnInit {
     return value.toLowerCase().replace(/\s/g, '');
   }
 
-  // csvInputChange(fileInputEvent) {}
-
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
@@ -400,5 +405,12 @@ export class DashboardComponent implements OnInit {
     config.verticalPosition = this.verticalPosition;
 
     this._snackBar.open(message, 'OK', config);
+  }
+
+  exportFile() {
+    this.apiService.getFileCsv().subscribe((response: Blob) => {
+      const blob = new Blob([response], { type: 'text/csv' });
+      saveAs(blob, 'eventi.csv');
+    });
   }
 }

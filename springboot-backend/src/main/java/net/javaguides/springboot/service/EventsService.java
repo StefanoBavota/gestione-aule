@@ -9,6 +9,7 @@ import net.javaguides.springboot.dto.response.EventsResponse;
 import net.javaguides.springboot.dto.response.GroupsResponse;
 import net.javaguides.springboot.model.Events;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public interface EventsService {
@@ -28,4 +29,6 @@ public interface EventsService {
     public List<EventsResponse> getAllEventsByCourseId(Long courseId, String selectedDay);
 
     public List<EventsResponse> getNextEventsByGroupId(Long groupId);
+
+    public byte[] exportAllEventsCsv();
 }
