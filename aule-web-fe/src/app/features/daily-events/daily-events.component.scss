@@ -45,12 +45,12 @@ mat-card {
 .right {
   width: 65%;
   display: flex;
-  align-items: center;
   padding: 10px;
   overflow: auto;
   white-space: nowrap;
-  overflow-y: hidden;
   gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .card {
