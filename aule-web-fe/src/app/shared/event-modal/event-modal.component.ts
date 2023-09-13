@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/features/services/api.service';
 })
 export class EventModalComponent implements OnInit {
   eventId: number = 0;
-  event: IEvents = {};
+  event: any = {};
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: number,
