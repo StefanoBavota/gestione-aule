@@ -24,10 +24,8 @@
     <p><strong>Descrizione:</strong> {{ event.description }}</p>
     <p><strong>Aula:</strong> {{ event.room!.name }}</p>
     <p><strong>Capacità aula:</strong> {{ event.room!.capacity }}</p>
-    <!-- Aggiungi altre informazioni dell'aula se necessario -->
     <p><strong>Docente:</strong> {{ event.supervisor!.name }}</p>
     <p><strong>Email docente:</strong> {{ event.supervisor!.email }}</p>
-    <!-- Aggiungi altre informazioni del docente se necessario -->
     <p><strong>Corsi associati:</strong></p>
     <ul>
       <li *ngFor="let course of event.courses">{{ course.name }}</li>
