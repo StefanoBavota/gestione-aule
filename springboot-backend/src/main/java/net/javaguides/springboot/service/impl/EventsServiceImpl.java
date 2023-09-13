@@ -105,7 +105,7 @@ public class EventsServiceImpl implements EventsService {
     @Override
     public List<EventsResponse> getNextEventsByGroupId(Long groupId) {
         LocalDateTime nowDateTime = LocalDateTime.now();
-        LocalDateTime threeHoursLaterDateTime = nowDateTime.plusHours(3);
+        LocalDateTime threeHoursLaterDateTime = nowDateTime.plusHours(4);
 
         List<EventsResponse> allEvents = getAllEvents();
 
